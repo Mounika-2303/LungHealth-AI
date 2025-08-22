@@ -1,52 +1,24 @@
-### Respiratory Disorder Classification Based on Lung Auscultation sounds
+# Respiratory Disorder Classification Using Lung Auscultation Sounds
 
-Respiratory sounds are important indicators of respiratory health and respiratory disorders. The sound emitted when a person 
-breathes is directly related to air movement, changes within lung tissue and the position of secretions within the lung. 
-A wheezing sound, for example, is a common sign that a patient has an obstructive airway disease like asthma or chronic 
-obstructive pulmonary disease (COPD). These sounds can be recorded using digital stethoscopes and other recording techniques.
-This digital data opens up the possibility of using machine learning to automatically diagnose respiratory disorders like asthma, 
-pneumonia and bronchiolitis, to name a few.
+## 📌 Project Overview
+This project detects and classifies respiratory disorders from lung auscultation sound files (.wav) using Deep Learning (CNN).  
+It includes a Flask-based web application where users can upload lung sound recordings, visualize waveforms & MFCCs, and receive prediction results.
 
-### Dataset Link
-Respiratory Sound Database: https://www.kaggle.com/vbookshelf/respiratory-sound-database
-The dataset includes 920 annotated recordings of varying length - 10s to 90s. These recordings were taken from 126 patients. There are a total of 5.5 hours of recordings containing 6898 respiratory cycles - 1864 contain crackles, 886 contain wheezes and 506 contain both crackles and wheezes.
+## 🎯 Purpose of Repository
+- Centralized storage of code and resources
+- Provides version control for tracking project progress
+- Enables deployment-ready Flask web app
+- Serves as a portfolio-ready project for academic and internship purposes
 
-### Docker Image for the app
-- https://hub.docker.com/r/adityahb333/respiratory-disorder-classification
-- Demo audio files for testing the application - https://github.com/adityahbapat/Respiratory-Disorder-Classification-Based-on-Lung-Auscultation-Sounds/tree/master/demo_audio_files
+## 🗂 Repository Structure
+- `backend/` → Flask app code, templates, static files, ML model
+- `dataset/` → Dataset (or link to Kaggle/ICBHI dataset)
+- `notebooks/` → Training & preprocessing notebooks
+- `requirements.txt` → List of Python dependencies
+- `README.md` → Project description & usage guide
 
-### Requirements:
-To get started with the project make sure you have python installed.
-(Backend folder has a different requirements.txt to support linux docker env)
-`pip install -r requirements.txt`
-
-### Folder Setup:
-Here is a detailed folder setup to help you get started
-
-respiratory_disorder_classification (Main Project Folder)
-- Respiratory_Sound_Database (sub-folder)
-- - audio_and_txt_files , etc
-- venv (virtual env sub folder)
-- backend (flask app)
-- processed_audio_files
-- .gitignore
-- demographic_info.txt
-- README.md
-- respiratory_disorder_classification.ipynb
-- training
-- - train.csv
-- validation
-- - val.csv 
-
-creating a virtual env:
-1. `python -m venv C:\Users\"Aditya Bapat"\Desktop\project\respiratory_disorder_classification\venv` (project folder path\venv)
-2. give permission for windows user: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted`
-3. To activate: `.\venv\Scripts\activate.ps1` 
-4. Install the req packages: eg `pip install tensorflow` (without venv do: pip install tensorflow --user)
-
-GPU support for tensorflow: https://www.youtube.com/watch?v=hHWkvEcDBO0
-
-### Flask App
-Flask app can be found in the backend folder
-To run the app:
-`python app.py`
+## ⚙️ Installation
+```bash
+git clone https://github.com/YourUsername/Respiratory-Disorder-Classification.git
+cd Respiratory-Disorder-Classification/backend
+pip install -r requirements.txt
