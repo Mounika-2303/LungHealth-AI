@@ -1,0 +1,12 @@
+[
+    {
+        "name": "akhila",
+        "result": "Respiratory disorder detected: Asthma with probability 37.7373069524765%",
+        "timestamp": "2025-08-21 21:47:44.417427"
+    },
+    {
+        "name": "akhila@gmail.com",
+        "result": "Respiratory disorder detected: COPD with probability 98.17243814468384%",
+        "timestamp": "2025-08-21 21:48:21.349338"
+    }
+]

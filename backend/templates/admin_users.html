@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}All Registered Users{% endblock %}
+{% block content %}
+<h2>Registered Users</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Last Login</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for email, data in users.items() %}
+    <tr>
+      <td>{{ email }}</td>
+      <td>{{ data.role }}</td>
+      <td>{{ data.last_login or "Never" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

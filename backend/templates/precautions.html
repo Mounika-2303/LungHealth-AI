@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Precautions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .exercise-img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center my-4">Precautions for {{ disease }}</h1>
+
+    <div class="jumbotron">
+        <p>{{ precautions_dict.get(disease, {}).get('precautions', 'No specific precautions available.') }}</p>
+
+        <h3>Daily Routine Activities:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in precautions_dict.get(disease, {}).get('routine', []) %}
+                    <tr>
+                        <td>{{ item.activity }}</td>
+                        <td>{{ item.details }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Breathing Exercises:</h3>
+        <div class="row">
+            {% for exercise in precautions_dict.get(disease, {}).get('exercises', []) %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{ url_for('static', filename='images/' ~ exercise.image) }}"
+                             class="card-img-top exercise-img" alt="{{ exercise.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ exercise.name }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h2 class="text-center my-4">YouTube Video Suggestions</h2>
+    <div class="row">
+        {% if videos %}
+            {% for video in videos %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ video.title }}</h5>
+                            <a href="https://www.youtube.com/watch?v={{ video.videoId }}" 
+                               target="_blank" class="btn btn-danger">
+                                ▶️ Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12 text-center text-muted">
+                <p>No video suggestions available for this disease.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="text-center my-4">
+        <button onclick="window.history.back()" class="btn btn-secondary">⬅️ Back</button>
+    </div>
+</div>
+</body>
+</html>

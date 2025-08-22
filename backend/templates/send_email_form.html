@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Email Notification</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1 style="color: red;">✅ THIS IS send_email_form.html ✅</h1>
+
+<div class="container mt-5">
+    <h2 class="text-center">Send Email Notification</h2>
+    <form method="post" action="{{ url_for('send_email') }}">
+        <div class="form-group">
+            <label for="name">Patient Name:</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Recipient Email Address:</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="disease">Detected Disease:</label>
+            <input type="text" class="form-control" name="disease" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">💌 Send Lung Report</button>
+
+    </form>
+</div>
+</body>
+</html>

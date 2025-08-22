@@ -1,0 +1,16 @@
+<!-- templates/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid mt-4">
+    <div class="container text-center">
+        <h1 class="display-4">Pulmonary Disease Detection</h1>
+        <p class="lead">Your satisfaction is our priority.</p>
+        <hr class="my-4">
+        <p>Email: contact@pulmonarydisease.com | Phone: +123 456 7890</p>
+        <a class="btn btn-primary btn-lg mt-3" href="{{ url_for('predict') }}" role="button">Start Prediction</a>
+    </div>
+</div>
+{% endblock %}

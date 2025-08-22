@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">🔐 Admin Panel</h2>
+
+    <!-- Section 1: Registered Users -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            Registered Users
+        </div>
+        <div class="card-body">
+            {% if users %}
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Last Login</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for email, info in users.items() %}
+                    <tr>
+                        <td>{{ email }}</td>
+                        <td>{{ info.role }}</td>
+                        <td>{{ info.last_login if info.last_login else 'Never' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>No users found.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Section 2: Audit Logs -->
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            Audit Logs
+        </div>
+        <div class="card-body" style="white-space: pre-wrap;">
+            {% if logs %}
+                {{ logs }}
+            {% else %}
+                <p>No audit logs available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

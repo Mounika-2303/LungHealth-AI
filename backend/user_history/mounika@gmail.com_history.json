@@ -1,0 +1,12 @@
+[
+    {
+        "name": "mno",
+        "result": "Respiratory disorder detected: COPD with probability 99.99970197677612%",
+        "timestamp": "2025-07-24 22:08:36.696567"
+    },
+    {
+        "name": "Raju",
+        "result": "Respiratory disorder detected: Asthma with probability 37.7373069524765%",
+        "timestamp": "2025-07-24 22:17:05.464106"
+    }
+]

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Register</h2>
+    <form method="POST">
+        <label>Email:</label>
+        <input type="email" name="email" required class="form-control"/>
+
+        <label>Password:</label>
+        <input type="password" name="password" required class="form-control"/>
+
+        {% if error %}
+        <p style="color:red">{{ error }}</p>
+        {% endif %}
+
+        <button class="btn btn-success mt-2">Register</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+</div>
+</body>
+</html>

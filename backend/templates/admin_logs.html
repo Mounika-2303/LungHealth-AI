@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Audit Logs{% endblock %}
+{% block content %}
+<h2>Audit Log Entries</h2>
+<pre style="background:#f8f9fa; padding:15px; border:1px solid #ccc;">
+{% for line in logs %}
+{{ line }}
+{% endfor %}
+</pre>
+{% endblock %}

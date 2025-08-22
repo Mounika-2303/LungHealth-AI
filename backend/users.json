@@ -1,0 +1,51 @@
+{
+    "admin@example.com": {
+        "password": "123456",
+        "role": "admin",
+        "last_login": "2025-08-21 21:58:45.142530"
+    },
+    "mounika@gmail.com": {
+        "password": "mounika05",
+        "role": "user",
+        "last_login": "2025-07-24 22:16:40.317546"
+    },
+    "mounika2303@gmail.com": {
+        "password": "mounika05",
+        "role": "user",
+        "last_login": "2025-07-30 22:20:48.229847"
+    },
+    "abc@gmail.com": {
+        "password": "1234",
+        "role": "user",
+        "last_login": "2025-08-09 16:32:19.038933"
+    },
+    "xyz@gmail.com": {
+        "password": "xyz",
+        "role": "user",
+        "last_login": "2025-07-24 21:22:38.833053"
+    },
+    "pqr@gmail.com": {
+        "password": "pqr",
+        "role": "user"
+    },
+    "alexa@gmail.com": {
+        "password": "alexa123",
+        "role": "user",
+        "last_login": "2025-07-24 22:43:21.874508"
+    },
+    "priya@gmail.com": {
+        "password": "12345",
+        "role": "user",
+        "last_login": "2025-08-14 13:22:13.365670"
+    },
+    "akhila@gmail.com": {
+        "password": "1234",
+        "role": "user",
+        "last_login": "2025-08-21 21:46:27.404977"
+    },
+    "ravi@gmail.com": {
+        "password": "12345",
+        "role": "user",
+        "last_login": "2025-08-21 21:59:51.688728"
+    }
+}

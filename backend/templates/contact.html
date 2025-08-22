@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="hero mb-4">
+  <h2 class="mb-2">Contact Us</h2>
+  <p class="text-muted mb-0">Have questions about predictions, accounts, or your reports? We’re here to help.</p>
+</div>
+
+<div class="row">
+  <!-- Contact Info Cards -->
+  <div class="col-md-5 mb-4">
+    <div class="card card-elevated mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Reach Us</h5>
+        <p class="mb-2"><strong>Email:</strong> contact@pulmonarydisease.com</p>
+        <p class="mb-2"><strong>Phone:</strong> +123 456 7890</p>
+        <p class="mb-0"><strong>Hours:</strong> Mon–Fri, 9:00–17:00</p>
+      </div>
+    </div>
+
+    <div class="card card-elevated">
+      <div class="card-body">
+        <h5 class="card-title">Quick Links</h5>
+        <div class="d-grid gap-2">
+          <a href="/predict" class="btn-cta mb-2">Start a Prediction</a>
+          <a href="/history" class="btn-ghost">View My History</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="col-md-7 mb-4">
+    <div class="card card-elevated">
+      <div class="card-body">
+        <h5 class="card-title mb-3">Send us a message</h5>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-success">{{ messages[0] }}</div>
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('contact') }}">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input class="form-control" id="name" name="name" required>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="email">Your Email</label>
+            <input class="form-control" type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="subject">Subject</label>
+            <input class="form-control" id="subject" name="subject" placeholder="e.g., Account issue, Model output, Report email">
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="message">Message</label>
+            <textarea class="form-control" rows="5" id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-cta mt-3">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

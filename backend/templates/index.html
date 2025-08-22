@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Respiratory Disorder Classification{% endblock %}
+
+{% block content %}
+{% if ospf %}
+<div class="body-index">
+    <div class="titleColor text-center">
+        <h1>Pulmonary Disease Detection using Lung Sounds</h1>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <label for="fname">Patient Name:</label>
+                <input type="text" class="form-control" id="name" name="name"/><br/>
+                <label>Input Patient Lung Auscultation Sound File (.wav format):</label><br/>
+                <input type="file" name="lungSounds" class="my-3" onchange="readURL(this);" accept=".wav"/>
+                <button type="submit" class="btn btn-primary my-3">Detect</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if ospf == 0 %}
+<div class="prediction">
+    <h1 id="demo" class="text-center my-3 py-2 border border-secondary">Patient Report of {{ n }}</h1>
+    <div class="container">
+        <h2 class="my-2 no-print">Given Sound File:</h2>
+        <audio controls class="no-print">
+            <source src="{{ lungSounds }}" type="audio/wav" alt="{{ n }} lung sounds"/>
+            Your browser does not support the audio element.
+        </audio><br/>
+
+        <img src="{{ url_for('static', filename='uploads/outSoundWave.png') }}" alt="Waveform"
+             width="500" height="500"/>
+        <img src="{{ url_for('static', filename='uploads/outSoundMFCC.png') }}" alt="MFCC"
+             width="500" height="500"/><br/>
+
+        <div class="jumbotron my-2 px-2">
+            <h2>Detection Results:</h2>
+            <h2 class="my-2">{{ res[0] }}</h2>
+
+            <button onclick="window.location.href='/precautions/{{ res[0].split(': ')[1].split(' ')[0] }}'"
+                    class="btn btn-primary my-3 no-print">View Precautions</button>
+
+            <!-- Email Feature -->
+            <form action="/send_email" method="post" class="my-3 no-print">
+                <input type="hidden" name="name" value="{{ n }}">
+                <input type="hidden" name="disease" value="{{ res[0].split(': ')[1].split(' ')[0] }}">
+                <label for="email">Recipient Email:</label>
+                <input type="email" id="email" name="email" required class="form-control"><br/>
+                <button type="submit" class="btn btn-success">Send Email</button>
+            </form>
+        </div>
+
+        <button onclick="get_pdf()" class="btn btn-primary my-3 no-print">Download Patient Report</button>
+    </div>
+</div>
+
+<script>
+    var x = document.getElementById("demo");
+    const t = x.innerHTML;
+
+    function get_pdf() {
+        window.print();
+    }
+</script>
+{% endif %}
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("lungSounds").src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+{% endblock %}

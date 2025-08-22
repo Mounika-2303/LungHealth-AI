@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2025-07-30T22:20:25",
+    "user": "admin@example.com",
+    "name": "xyz",
+    "email": "abc@gmail.com",
+    "subject": "prediction",
+    "message": "abcgyu"
+  },
+  {
+    "timestamp": "2025-08-09T16:30:38",
+    "user": "abc@gmail.com",
+    "name": "abc",
+    "email": "abc@gmail.com",
+    "subject": "problem with checking history",
+    "message": "abscsjnijs"
+  },
+  {
+    "timestamp": "2025-08-14T13:25:56",
+    "user": "priya@gmail.com",
+    "name": "priya",
+    "email": "priya@gmail.com",
+    "subject": "Account issue",
+    "message": "credentials storage"
+  }
+]

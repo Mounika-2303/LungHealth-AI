@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Audit Logs{% endblock %}
+
+{% block content %}
+<h2 class="my-3">Audit Log Entries</h2>
+
+{% if logs %}
+<pre style="background-color: #f8f9fa; padding: 15px; border: 1px solid #dee2e6;">
+{{ logs | join('') }}
+</pre>
+{% else %}
+<p>No logs found.</p>
+{% endif %}
+{% endblock %}

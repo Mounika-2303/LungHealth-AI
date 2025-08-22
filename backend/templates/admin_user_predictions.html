@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}User Predictions{% endblock %}
+
+{% block content %}
+<h2 class="my-3">User Prediction History</h2>
+
+{% for user_data in predictions %}
+<div class="card mb-4">
+    <div class="card-header font-weight-bold bg-light">
+        User: {{ user_data.user }}
+    </div>
+    <div class="card-body">
+        {% if user_data.entries %}
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Result</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in user_data.entries %}
+                <tr>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.result }}</td>
+                    <td>{{ entry.timestamp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No predictions found for this user.</p>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

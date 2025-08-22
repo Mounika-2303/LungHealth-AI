@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Contact Messages{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center mb-3">
+  <h2 class="mb-0">Contact Messages</h2>
+  <span class="badge bg-light text-dark ml-2" style="margin-left:.75rem;">
+    {{ messages|length }}
+  </span>
+</div>
+
+{% if messages %}
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>Time</th>
+          <th>User (session)</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in messages %}
+        <tr>
+          <td style="white-space: nowrap;">{{ m.timestamp }}</td>
+          <td>{{ m.user }}</td>
+          <td>{{ m.name }}</td>
+          <td><a href="mailto:{{ m.email }}">{{ m.email }}</a></td>
+          <td>{{ m.subject }}</td>
+          <td style="max-width: 520px; white-space: pre-wrap;">{{ m.message }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <div class="alert alert-info">No messages yet.</div>
+{% endif %}
+{% endblock %}

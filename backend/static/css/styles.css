@@ -1,0 +1,274 @@
+/* ===========================
+   Global / Layout
+   =========================== */
+
+body {
+  /* Subtle gradient overlay + image */
+  background-image:
+    linear-gradient(120deg, rgba(13,110,253,0.08), rgba(49,210,242,0.08)),
+    url("../images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+  /* Fallback color if image not found */
+  background-color: #f7f9fc;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+               Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+               "Noto Color Emoji", sans-serif;
+  color: #212529;
+}
+
+.container, .container-fluid {
+  position: relative;
+  z-index: 1;
+}
+
+.page-surface {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(13,110,253,0.12);
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+/* ===========================
+   Navbar
+   =========================== */
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Base nav-link transitions */
+.navbar .nav-link {
+  position: relative;
+  transition: color .15s ease, opacity .15s ease;
+}
+
+/* Active nav item highlight */
+.navbar .nav-link.active {
+  font-weight: 700;
+  color: #0d6efd !important;
+}
+.navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0.2rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0d6efd, #31d2f2);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+/* Subtle hover underline for non-active */
+.navbar .nav-link:not(.active)::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(13,110,253,.25), rgba(49,210,242,.25));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+.navbar .nav-link:not(.active):hover::after {
+  transform: scaleX(1);
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+
+.btn {
+  border-radius: 0.7rem;
+  font-weight: 700;
+  transition: transform 120ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* Bootstrap primary upgraded */
+.btn.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #0d6efd, #31d2f2);
+  border: 0;
+  box-shadow: 0 10px 22px rgba(13,110,253,0.35);
+}
+.btn.btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 14px 28px rgba(13,110,253,0.45);
+}
+.btn.btn-primary:focus {
+  box-shadow:
+    0 0 0 0.2rem rgba(13,110,253,0.25),
+    0 12px 26px rgba(13,110,253,0.40);
+}
+
+/* CTA buttons */
+.btn-cta {
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: #fff !important;
+  background: linear-gradient(135deg, #0d6efd, #31d2f2);
+  box-shadow: 0 12px 26px rgba(13,110,253,0.35);
+  transition: transform 120ms ease, box-shadow 180ms ease, filter 180ms ease;
+  text-decoration: none !important;
+  display: inline-block;
+}
+.btn-cta:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 16px 32px rgba(13,110,253,0.45);
+}
+
+/* CTA variants */
+.btn-cta-success {
+  background: linear-gradient(135deg, #198754, #34d399);
+  box-shadow: 0 12px 26px rgba(25,135,84,0.35);
+}
+.btn-cta-success:hover {
+  box-shadow: 0 16px 32px rgba(25,135,84,0.45);
+}
+
+.btn-cta-warning {
+  color: #1f2937 !important;
+  background: linear-gradient(135deg, #f59f00, #ffd43b);
+  box-shadow: 0 12px 26px rgba(245,159,0,0.35);
+}
+.btn-cta-warning:hover {
+  box-shadow: 0 16px 32px rgba(245,159,0,0.45);
+}
+
+/* Ghost (outline) button */
+.btn-ghost {
+  padding: 0.7rem 1.15rem;
+  border-radius: 0.85rem;
+  font-weight: 700;
+  border: 2px solid #0d6efd;
+  color: #0d6efd !important;
+  background: #ffffff;
+  transition: all 0.15s ease;
+  text-decoration: none !important;
+  display: inline-block;
+}
+.btn-ghost:hover {
+  color: #fff !important;
+  background: #0d6efd;
+  box-shadow: 0 8px 18px rgba(13,110,253,0.25);
+}
+
+/* Disabled state */
+button:disabled, .btn:disabled {
+  filter: grayscale(15%);
+  opacity: .65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===========================
+   Forms
+   =========================== */
+
+input.form-control,
+textarea.form-control,
+select.form-control,
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="file"] {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ced4da;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.15);
+  border-color: #0d6efd;
+  outline: none;
+}
+
+.form-group label, label {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* ===========================
+   Cards / Surfaces / Hero
+   =========================== */
+
+.card-elevated {
+  border: 1px solid #eaeef5;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+}
+
+.hero {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(13,110,253,0.12);
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  backdrop-filter: blur(2px);
+}
+
+/* ===========================
+   Tables
+   =========================== */
+
+.table {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.thead-light th {
+  background-color: #eef5ff;
+  color: #0d3b66;
+  font-weight: 700;
+}
+
+/* ===========================
+   Login Page Layout
+   =========================== */
+
+.login-container {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ===========================
+   Utility
+   =========================== */
+
+.text-muted-soft { color: #6c757d !important; }
+.shadow-soft   { box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08) !important; }
+.rounded-xl    { border-radius: 1rem !important; }
